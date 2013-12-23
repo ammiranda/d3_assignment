@@ -2,7 +2,10 @@ var w = 500;
 var h = 200;
 var barPadding = 1;
 
-var dataset = [
+var dataset = [];
+var labels = [];
+
+var data = [
 		["2018-12-31",13760.435],
 		["2017-12-31",12633.41],
 		["2016-12-31",11584.528],
@@ -43,6 +46,18 @@ var dataset = [
 		["1981-12-31",286.979],
 		["1980-12-31",303.365]
 		];
+
+_.each(data, function(d,i){
+	labels.push(data[i][0]);
+});
+
+_.each(data, function(d,i){
+	dataset.push(data[i][1]);
+});
+
+console.log(dataset);
+console.log(labels);
+
 
 
 var svg = d3.select("body")
