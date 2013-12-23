@@ -1,5 +1,5 @@
 var w = 500;
-var h = 200;
+var h = 400;
 var barPadding = 1;
 
 var dataset = [];
@@ -58,6 +58,10 @@ _.each(data, function(d,i){
 console.log(dataset);
 console.log(labels);
 
+var yScale = d3.scale.linear()
+						.domain([0, d3.max(dataset), function(d){return d;}])
+						.range([0,h]);
+
 
 
 var svg = d3.select("body")
@@ -73,7 +77,7 @@ var svg = d3.select("body")
 			   		return i * (w / dataset.length);
 			   })
 			   .attr("y", function(d) {
-			   		return h - (d * 4);
+			   		return h - (yScale(d) * 4);
 			   })
 			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", function(d) {
