@@ -50,7 +50,7 @@ var data = [
 data.reverse();
 
 _.each(data, function(d,i){
-	labels.push(data[i][0]);
+	labels.push(data[i][0].substring(0,4));
 });
 
 _.each(data, function(d,i){
@@ -109,12 +109,12 @@ var svg = d3.select("body")
 			   .attr("x", function(d, i) {
 			   		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
 			   })
-			   .attr("y", function(d) {
-			   		return 0;
+			   .attr("y", function(d, i) {
+			   		return h;
 			   })
 			   .attr("font-family", "sans-serif")
-			   .attr("font-size", "12px")
-			   .attr("fill", "black");
+			   .attr("font-size", "5px")
+			   .attr("fill", "white");
 
 			svg.append("g")
 				.attr("transform", "translate(0," + (h - barPadding) + ")")
