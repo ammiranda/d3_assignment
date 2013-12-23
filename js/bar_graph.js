@@ -84,7 +84,7 @@ var svg = d3.select("body")
 			   });
 
 			svg.selectAll("text")
-			   .data(dataset)
+			   .data(labels)
 			   .enter()
 			   .append("text")
 			   .text(function(d) {
