@@ -1,5 +1,5 @@
 var w = 500;
-var h = 400;
+var h = 350;
 var barPadding = 1;
 
 var dataset = [];
@@ -47,6 +47,8 @@ var data = [
 		["1980-12-31",303.365]
 		];
 
+data.reverse();
+
 _.each(data, function(d,i){
 	labels.push(data[i][0]);
 });
@@ -77,14 +79,14 @@ var svg = d3.select("body")
 			   		return i * (w / dataset.length);
 			   })
 			   .attr("y", function(d) {
-			   		return h - (yScale(d) * 4);
+			   		return h - (yScale(d));
 			   })
 			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", function(d) {
-			   		return d * 4;
+			   		return yScale(d) * 4;
 			   })
 			   .attr("fill", function(d) {
-					return "rgb(0, 0, " + (d * 10) + ")";
+					return "rgb(0, 0, " + (yScale(d) * 10) + ")";
 			   });
 
 			svg.selectAll("text")
