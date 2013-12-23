@@ -1,5 +1,5 @@
-var w = 500;
-var h = 350;
+var w = 1000;
+var h = 250;
 var barPadding = 1;
 
 var dataset = [];
@@ -60,9 +60,21 @@ _.each(data, function(d,i){
 console.log(dataset);
 console.log(labels);
 
+var xScale = d3.scale.linear()
+						.domain([0, dataset.length])
+						.range([0,h]);
+
 var yScale = d3.scale.linear()
 						.domain([0, d3.max(dataset), function(d){return d;}])
 						.range([0,h]);
+
+var xAxis = d3.svg.axis()
+				.scale(xScale)
+				.orient("bottom");
+
+var yAxis = d3.svg.axis()
+				.scale(yScale)
+				.orient("bottom");
 
 
 
@@ -84,9 +96,6 @@ var svg = d3.select("body")
 			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", function(d) {
 			   		return yScale(d) * 4;
-			   })
-			   .attr("fill", function(d) {
-					return "rgb(0, 0, " + (yScale(d) * 10) + ")";
 			   });
 
 			svg.selectAll("text")
@@ -101,8 +110,12 @@ var svg = d3.select("body")
 			   		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
 			   })
 			   .attr("y", function(d) {
-			   		return h - (d * 4) + 14;
+			   		return 0;
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "12px")
-			   .attr("fill", "white");
+			   .attr("fill", "black");
+
+			svg.append("g")
+				.attr("transform", "translate(0," + (h - barPadding) + ")")
+				.call(yAxis);
