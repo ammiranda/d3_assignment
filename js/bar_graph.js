@@ -1,5 +1,5 @@
-var w = 1000;
-var h = 250;
+var w = 1200;
+var h = 300;
 var barPadding = 1;
 
 var dataset = [];
@@ -113,8 +113,8 @@ var svg = d3.select("body")
 			   		return h;
 			   })
 			   .attr("font-family", "sans-serif")
-			   .attr("font-size", "5px")
-			   .attr("fill", "white");
+			   .attr("font-size", "12px")
+			   .attr("fill", "pink");
 
 			svg.append("g")
 				.attr("transform", "translate(0," + (h - barPadding) + ")")
