@@ -5,5 +5,10 @@ div.bar {
 				margin-right: 2px;
 				background-color: teal;
 			}
+.axis {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
 		
 		

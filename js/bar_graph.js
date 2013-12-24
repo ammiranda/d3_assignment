@@ -118,5 +118,6 @@ var svg = d3.select("body")
 			   .attr("fill", "yellow");
 
 			svg.append("g")
+				.attr("class", "axis")
 				.attr("transform", "translate(0," + barPadding + ", 0)")
 				.call(yAxis);
