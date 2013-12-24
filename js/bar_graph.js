@@ -74,7 +74,8 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
 				.scale(yScale)
-				.orient("left");
+				.orient("right")
+				.ticks(10);
 
 
 
@@ -120,4 +121,10 @@ var svg = d3.select("body")
 			svg.append("g")
 				.attr("class", "axis")
 				.attr("transform", "translate(0," + barPadding + ", 0)")
-				.call(yAxis);
+				.call(yAxis)
+				.append("text")
+					.attr("transform", "rotate(-90)")
+					.attr("y", 6)
+					.attr("dy", ".71em")
+					.style("text-anchor", "end")
+					.text("Billions of USD");
