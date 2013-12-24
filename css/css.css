@@ -5,6 +5,10 @@ div.bar {
 				margin-right: 2px;
 				background-color: teal;
 			}
+div.bar:hover {
+	fill: blue;
+}
+
 .axis {
 	fill: none;
 	stroke: black;
@@ -13,6 +17,10 @@ div.bar {
 
 svg {
 	border: solid 1px black;
+
+.axis text {
+	font-family: sans-serif;
+	font-size: 12px;
 }
 		
 		
