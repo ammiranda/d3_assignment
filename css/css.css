@@ -9,6 +9,15 @@ rect:hover {
 	fill: blue;
 }
 
+a {
+	text-decoration: none;
+	color: #7ea2bc;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 .axis {
 	fill: none;
 	stroke: yellow;
