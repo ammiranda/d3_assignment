@@ -11,16 +11,19 @@ div.bar:hover {
 
 .axis {
 	fill: none;
-	stroke: black;
+	stroke: yellow;
 	shape-rendering: crispEdges;
 }
 
 svg {
 	border: solid 1px black;
+	background-color: black;
+}
 
 .axis text {
 	font-family: sans-serif;
 	font-size: 12px;
+	font-color: yellow;
 }
 		
 		
