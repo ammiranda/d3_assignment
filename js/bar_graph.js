@@ -1,6 +1,6 @@
 var w = 1200;
 var h = 300;
-var barPadding = 1;
+var barPadding = 2;
 
 var dataset = [];
 var labels = [];
@@ -65,7 +65,7 @@ var xScale = d3.scale.linear()
 						.range([0,h]);
 
 var yScale = d3.scale.linear()
-						.domain([0, d3.max(dataset), function(d){return d;}])
+						.domain([10, d3.max(dataset), function(d){return d;}])
 						.range([0,h]);
 
 var xAxis = d3.svg.axis()
@@ -74,7 +74,8 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
 				.scale(yScale)
-				.orient("left");
+				.orient("right")
+				.ticks(5);
 
 
 
@@ -119,5 +120,5 @@ var svg = d3.select("body")
 
 			svg.append("g")
 				.attr("class", "axis")
-				.attr("transform", "translate(0," + barPadding + ", 0)")
+				.attr("transform", "translate(0," + (barPadding) + ", 5)")
 				.call(yAxis);

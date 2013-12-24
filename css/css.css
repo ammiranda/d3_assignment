@@ -10,5 +10,9 @@ div.bar {
 	stroke: black;
 	shape-rendering: crispEdges;
 }
+
+svg {
+	border: solid 1px black;
+}
 		
 		
