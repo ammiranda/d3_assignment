@@ -120,8 +120,6 @@ var svg = d3.select("body")
 
 			svg.append("g")
 				.attr("class", "axis")
-				.attr("transform", "translate(0," + (barPadding) + ", 5)")
-				.call(yAxis);
 				.attr("transform", "translate(0," + barPadding + ", 0)")
 				.call(yAxis)
 				.append("text")
