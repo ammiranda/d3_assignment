@@ -27,6 +27,7 @@ a:hover {
 svg {
 	border: solid 1px black;
 	background-color: black;
+	margin: auto 0;
 }
 
 .axis text {

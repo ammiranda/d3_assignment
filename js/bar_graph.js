@@ -54,26 +54,31 @@ _.each(data, function(d,i){
 });
 
 _.each(data, function(d,i){
-	dataset.push(data[i][1]);
+	dataset.push(data[i][1].toFixed(0));
 });
 
 console.log(dataset);
 console.log(labels);
 
+console.log(d3.max(dataset));
+
 var xScale = d3.scale.linear()
 						.domain([0, dataset.length])
-						.range([0,h]);
+						.range([0,dataset.length]);
 
 var yScale = d3.scale.linear()
-						.domain([10, d3.max(dataset), function(d){return d;}])
+						.domain([0, 13760])
 						.range([0,h]);
+var yScale2 = d3.scale.linear()
+						.domain([0, 13760])
+						.range([h,0]);
 
 var xAxis = d3.svg.axis()
 				.scale(xScale)
 				.orient("bottom");
 
 var yAxis = d3.svg.axis()
-				.scale(yScale)
+				.scale(yScale2)
 				.orient("right")
 				.ticks(10);
 
@@ -96,9 +101,28 @@ var svg = d3.select("body")
 			   })
 			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", function(d) {
-			   		return yScale(d) * 4;
+			   		return yScale(d);
 			   })
 			   .attr("fill", "red");
+
+			svg.selectAll("text")
+				.data(dataset)
+				.enter()
+				.append("text")
+				.text(function(d){
+					return d;
+				})
+				.attr("text-anchor", "middle")
+				.attr("x", function(d, i){
+					return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+				})
+				.attr("y", function(d){
+					return h - yScale(d) + 7;
+				})
+			   .attr("font-family", "sans-serif")
+			   .attr("font-size", "10px")
+			   .attr("fill", "yellow");
+
 
 			svg.selectAll("text")
 			   .data(labels)
@@ -127,4 +151,3 @@ var svg = d3.select("body")
 					.attr("y", 6)
 					.attr("dy", ".71em")
 					.style("text-anchor", "end")
-					.text("Billions of USD");
