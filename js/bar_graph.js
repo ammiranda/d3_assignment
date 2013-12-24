@@ -74,7 +74,7 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
 				.scale(yScale)
-				.orient("bottom");
+				.orient("left");
 
 
 
@@ -96,7 +96,8 @@ var svg = d3.select("body")
 			   .attr("width", w / dataset.length - barPadding)
 			   .attr("height", function(d) {
 			   		return yScale(d) * 4;
-			   });
+			   })
+			   .attr("fill", "red");
 
 			svg.selectAll("text")
 			   .data(labels)
@@ -114,8 +115,8 @@ var svg = d3.select("body")
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "12px")
-			   .attr("fill", "pink");
+			   .attr("fill", "yellow");
 
 			svg.append("g")
-				.attr("transform", "translate(0," + (h - barPadding) + ")")
+				.attr("transform", "translate(0," + barPadding + ", 0)")
 				.call(yAxis);
