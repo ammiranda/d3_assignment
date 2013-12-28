@@ -6,7 +6,7 @@ div.bar {
 				background-color: teal;
 			}
 rect:hover {
-	fill: blue;
+	fill: #ff6868;
 }
 
 a {
