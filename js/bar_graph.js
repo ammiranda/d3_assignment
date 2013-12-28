@@ -80,14 +80,14 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
 				.scale(yScale2)
 				.orient("right")
-				.ticks(10);
+				.tickValues([2000, 4000, 6000, 8000, 10000, 12000]);
 
 
 
 var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h);
+						.attr("height", h + 20);
 
 			svg.selectAll("rect")
 			   .data(dataset)
@@ -136,7 +136,7 @@ var svg = d3.select("body")
 			   		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
 			   })
 			   .attr("y", function(d, i) {
-			   		return h;
+			   		return h - 10;
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "12px")

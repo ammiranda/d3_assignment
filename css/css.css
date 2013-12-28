@@ -27,6 +27,7 @@ a:hover {
 svg {
 	border: solid 1px black;
 	background-color: black;
+	display: block;
 	margin: auto 0;
 }
 
