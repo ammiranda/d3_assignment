@@ -63,12 +63,11 @@ console.log(labels);
 console.log(d3.max(dataset));
 
 var year = function(d) {
-	return toString(labels[d]);
+	return labels;
 }
 
 var xScale = d3.scale.ordinal()
-						.domain(labels)
-						.range([0,w]);
+						.domain(year);
 
 var yScale = d3.scale.linear()
 						.domain([0, 13760])
@@ -158,6 +157,12 @@ var svg = d3.select("body")
 
 			svg.append("g")
 				.attr("class", "axis")
-				.attr("transform", "translate(" + 10 + "," + h +")")
+				.attr("transform", "translate(5," + h + ")")
 				.call(xAxis)
 				.append("text")
+					 .attr("x", function(d, i) {
+			   		return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+			   })
+					 .attr("y", function(d, i) {
+			   		return h - 10;
+			   });	 
