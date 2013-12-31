@@ -64,7 +64,7 @@ console.log(d3.max(dataset));
 
 var xScale = d3.scale.linear()
 						.domain([0, dataset.length])
-						.range([0,dataset.length]);
+						.range([0,w]);
 
 var yScale = d3.scale.linear()
 						.domain([0, 13760])
