@@ -1,4 +1,4 @@
-var w = 1200;
+var w = 1000;
 var h = 300;
 var barPadding = 2;
 
@@ -63,11 +63,12 @@ console.log(labels);
 console.log(d3.max(dataset));
 
 var year = function(d) {
-	return labels;
+	return labels.map(function(d){return d;});
 }
 
 var xScale = d3.scale.ordinal()
-						.domain(year);
+						.domain(year)
+						.range([w, 0]);
 
 var yScale = d3.scale.linear()
 						.domain([0, 13760])
